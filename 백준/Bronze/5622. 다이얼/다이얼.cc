@@ -1,19 +1,11 @@
 #include <stdio.h>
-
-int main(void) {
-		char a[16];
-		int sum = 0;
-		scanf("%s",&a);
-		for(int i = 0;a[i] != '\0';i++) {
-			if(a[i]=='A' || a[i]=='B' || a[i]=='C') sum+=3;
-			if(a[i]=='D' || a[i]=='E' || a[i]=='F') sum+=4;
-			if(a[i]=='G' || a[i]=='H' || a[i]=='I') sum+=5;
-			if(a[i]=='J' || a[i]=='K' || a[i]=='L') sum+=6;
-			if(a[i]=='M' || a[i]=='N' || a[i]=='O') sum+=7;
-			if(a[i]=='P' || a[i]=='Q' || a[i]=='R' || a[i]=='S') sum+=8;
-			if(a[i]=='T' || a[i]=='U' || a[i]=='V') sum+=9;
-			if(a[i]=='W' || a[i]=='X' || a[i]=='Y' || a[i]=='Z') sum+=10;
-		}
-		printf("%d",sum);
-		return 0;
+int main(){
+	int a[]={3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,8,9,9,9,10,10,10,10},sum=0;
+	char s[16];
+	scanf("%s",&s);
+	for(int i=0;s[i]!='\0';i++){
+		sum+=a[s[i]-'A'];
+	}
+	printf("%d",sum);
+	return 0;
 }

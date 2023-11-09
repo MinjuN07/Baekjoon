@@ -1,30 +1,16 @@
 #include <stdio.h>
 int main(){
 	char sub[51],alp[2];
-	double sc,sumh=0,sumk=0;
-	for(int i=0;i<20;i++){
-		scanf("%s %lf %s",sub,&sc,alp);
+	double sc,g_sum=0,sum=0,n;
+	while(scanf("%s %lf %s",sub,&sc,alp) != EOF){
 		if(alp[0]=='P') continue;
-		else{
-			sumh += sc;
-			if(alp[1]=='+'){
-				switch(alp[0]) {
-					case 'A':{sumk+=sc*4.5; break;}
-					case 'B':{sumk+=sc*3.5; break;}
-					case 'C':{sumk+=sc*2.5; break;}
-					case 'D':{sumk+=sc*1.5; break;}
-				}
-			}
-			else if(alp[1]=='0'){
-				switch(alp[0]) {
-					case 'A':{sumk+=sc*4.0; break;}
-					case 'B':{sumk+=sc*3.0; break;}
-					case 'C':{sumk+=sc*2.0; break;}
-					case 'D':{sumk+=sc*1.0; break;}
-				}
-			}
-		}
+		if(alp[0]=='F') {g_sum+=sc; continue;}
+		n='A'-alp[0]+4.0;
+		if(alp[1]=='+') n+=0.5;
+		g_sum+=sc;
+		sum+=sc*n;
 	}
-	printf("%f",sumk/sumh);
+	printf("%f",sum/g_sum);
     return 0;
 }
+

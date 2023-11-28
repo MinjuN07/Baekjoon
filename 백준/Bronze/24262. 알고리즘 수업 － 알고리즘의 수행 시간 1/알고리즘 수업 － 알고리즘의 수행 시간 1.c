@@ -1,1 +1,1 @@
-main(){puts("1\n0");}
+main(){puts("1 0");}

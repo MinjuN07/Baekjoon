@@ -4,34 +4,34 @@
 
 using namespace std;
 
-int N, good = 0;
-vector<long long> A;
+int n, good = 0;
+vector<long long> a;
 
 int main() {
-  cin >> N;
-  A.resize(N);
-  for(int i = 0; i < N; i++) {
-    cin >> A[i];
+  cin >> n;
+  a.resize(n);
+  for(int i = 0; i < n; i++) {
+    cin >> a[i];
   }
-  sort(A.begin(), A.end());
+  sort(a.begin(), a.end());
 
-  for(int i = 0; i < N; i++) {
-    int min = 0, max = N - 1;
-    int target = A[i];
-    while(min < max) {
-      if(target < A[min] + A[max]) {
-        max--;
+  for(int i = 0; i < n; i++) {
+    int f = 0, l = n - 1;
+    int t = a[i];
+    while(f < l) {
+      if(t < a[f] + a[l]) {
+        l--;
       }
-      else if(target > A[min] + A[max]) {
-        min++;
+      else if(t > a[f] + a[l]) {
+        f++;
       }
       else {
-        if(min != i && max != i) {
+        if(f != i && l != i) {
           good++;
           break;
         }
-        else if(min == i)   min++;
-        else if(max == i)   max--;
+        else if(f == i)   f++;
+        else if(l == i)   l--;
       }
     }
   }
